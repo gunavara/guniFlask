@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Справка</h1>
+
+<div class="container">
+  
+  <p align="center" style="margin-top: 25px;"><b>Записани разходи:</b></p>
+  <table class="table" style="width: 65%; margin: auto;">
+    <thead>
+      <tr>
+        <th>Потребителско име:</th>
+        <th>Вид разход:</th>
+        <th>Дата:</th>
+        <th>Сума:</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for x in data %}
+      <tr>
+        <td>{{ x[2] }}</td>
+        <td>{{x[4]}}</td>
+        <td>{{x[5]}}</td>
+        <td>{{x[6]}}</td>
+      </tr>
+     {%endfor%}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}

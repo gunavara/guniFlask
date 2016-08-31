@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap-theme.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap-theme.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+
+{% if session.logged_in %}
+
+    
+      <a class="navbar-brand" href="{{url_for('dashboard')}}">Асистент 0.1</a> 
+
+    <ul class="nav navbar-nav">
+      <li> <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Разходи
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="{{url_for('razhodi')}}">Видове разходи</a></li>
+    <li><a href="{{url_for('novoplashtane')}}">Добави плащане</a></li>
+    <li><a href="{{url_for('spravka')}}">Справка</a></li>
+  </ul>
+</div></li>  
+      <li><a href="#">Информация</a></li> 
+ 	</ul>
+ 	
+ 	<ul class="nav navbar-nav" style="float: right;">     
+      <li class="loggedingreeting">Привет, {{username}}</li>
+      <li><a href="{{url_for('logout')}}" style="float: right;">Изход</a></li>     
+    </ul>
+      {% else %}
+      <ul class="nav navbar-nav">
+     <li><a href="#">About</a></li> 
+    </ul>
+    {% endif %}
+
+</nav>
+   
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

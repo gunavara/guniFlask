@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<form action="/login" method="POST">
+	<div class="formlogin">
+		<div class="form-group">
+			<label for="username">Username:</label> <input type="text"
+				class="form-control" name="username">
+		</div>
+
+		<div class="form-group">
+			<label for="password">Password:</label> <input type="password"
+				class="form-control" name="password">
+		</div>
+
+		<input type="submit" value="Log in"
+			class="btn btn-primary btn-large btn-block"> <a
+			href="{{ url_for('registration') }}"
+			class="btn btn-primary btn-large btn-block">Register</a> {% if error
+		%}
+		<p class="error">
+			<strong>Error:</strong>{{error}}
+		</p>
+		{% endif %} <br>
+	</div>
+
+</form>
+
+
+{% endblock %}

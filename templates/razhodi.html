@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta charset="UTF-8">
+<form action="/dobavqnenarazhod" method="POST">
+<div class="formlogin">
+  <div class="form-group">
+    <label for="razhod">Добави нов тип разход:</label>
+    <input type="text" class="form-control" name="razhod">
+  </div>
+ 
+  <button type="submit" class="btn btn-success">Добави</button>
+</div>
+</form>
+
+
+<div class="panel panel-default" style="margin-top: 50px; width: 700px;">
+  <div class="panel-body">Налични типове разходи:</div>
+  {% for x in data %} 
+  <div class="panel-footer">{{y }}{{ x[0] }}</div>
+
+{%endfor%}
+</div>
+{% endblock %}
